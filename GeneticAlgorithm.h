@@ -49,7 +49,7 @@ private:
 	/* Chance to mutate each gene of each offspring */
 	std::vector<Solution> mutate(std::vector<Solution> offspring);
 	//Use tournament selection and replace lowest fitness from tournament
-	void replace(std::vector<Solution> offspring, std::vector<Solution>* population);
+	void replace(std::vector<Solution> offspring);
 	void save_Generation_Fitness_Stats();
 };
 

@@ -1,0 +1,73 @@
+﻿  GACrossover.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(40,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(42,10): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Settings.h(10,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GACrossover.cpp(35,36): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GACrossover.cpp(50,17): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GACrossover.cpp(56,55): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GACrossover.cpp(62,63): warning C4018: '<': signed/unsigned mismatch
+  GAMutate.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(40,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(42,10): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Settings.h(10,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GAMutate.cpp(12,40): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GAMutate.cpp(15,43): warning C4018: '<': signed/unsigned mismatch
+  GASelect.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(40,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(42,10): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Settings.h(10,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+  GA_TSP_Solution.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Settings.h(10,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(40,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(42,10): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\utility(149,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GenerationFitness.h(26): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GenerationFitness.h(22): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+  GeneticAlgorithm.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(40,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Solution.h(42,10): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Settings.h(10,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GeneticAlgorithm.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GeneticAlgorithm.cpp(45,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GeneticAlgorithm.cpp(79,52): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\utility(149,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GenerationFitness.h(26): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\GenerationFitness.h(22): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+  Generating Code...
+  GA_TSP_Solution.vcxproj -> C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\GA_TSP_Solution\Debug\GA_TSP_Solution.exe

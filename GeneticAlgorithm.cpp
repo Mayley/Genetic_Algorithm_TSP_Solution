@@ -10,7 +10,7 @@ GeneticAlgorithm::GeneticAlgorithm() {
 /* create initial population upto populationSize */
 void GeneticAlgorithm::create_Initial_Population() {
 	Solution sol;
-	//Creates random solution, and calculates the fitness based off the solution ID
+	//Create and add solution to population
 	for (int i = 0; i < populationSize; i++)
 	{
 		//Randomise the solution
@@ -25,12 +25,12 @@ void GeneticAlgorithm::evolve() {
 	for (int i = 0; i < numberOfGenerations; i++)
 	{	
 		std::cout << "-------------------------------------------------------------------" << std::endl;
-		std::cout << "Generation: " << i << std::endl;
+		std::cout << "Generation: " << i+1 << std::endl;
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */
 		std::vector<Solution> offspring = crossover(select_Parents());
 		std::vector<Solution> mutatedSolution = mutate(offspring);
-		replace(mutatedSolution, &population);
+		replace(mutatedSolution);
 		
 		//Save population at the end of the generation
 		save_Generation_Fitness_Stats();
@@ -53,8 +53,8 @@ void GeneticAlgorithm::save_Generation_Fitness_Stats() {
 
 /* Select Two parents using different selection method. Outputs two parent solutions. */
 std::vector<Solution> GeneticAlgorithm::select_Parents() {
-	GASelect gaSel;
-	return gaSel.select_Solution(population);
+	GASelect sel(population);
+	return sel.select_Solution(selectionMethodType::SELECT_TOURNAMENT);
 }
 
 /* Crossover genes of parent solutions (exact copy or different) */
@@ -70,20 +70,21 @@ std::vector<Solution> GeneticAlgorithm::mutate(std::vector<Solution> offspring) 
 }
 
 /* Take the offspring and replace them with the lowest rated solution from population using tournament method*/
-void GeneticAlgorithm::replace(std::vector<Solution> offspring, std::vector<Solution> *population) {
-	GASelect sel;
+void GeneticAlgorithm::replace(std::vector<Solution> offspring) {
+	//Load select module with current pop and selecting the lowest fitness
+	GASelect sel(population, false);
 	//Select two solutions to remove, based on lowest fitness winning
-	std::vector<Solution> replaceSolution = sel.select_Solution(*population, false);
+	std::vector<Solution> replaceSolution = sel.select_Solution(selectionMethodType::SELECT_TOURNAMENT);
 
 	//Now replace these soltions with the offspring solutions
 	for (int replaceSolutionID = 0; replaceSolutionID < replaceSolution.size(); replaceSolutionID++)
 	{
-		auto it = std::find(population->begin(), population->end(), replaceSolution[replaceSolutionID]);
-		if (it != population->end()) {
-			int id = it - population->begin();
-			population->erase(it);
+		auto it = std::find(population.begin(), population.end(), replaceSolution[replaceSolutionID]);
+		if (it != population.end()) {
+			int id = it - population.begin();
+			population.erase(it);
 
-			population->push_back(offspring[replaceSolutionID]);
+			population.push_back(offspring[replaceSolutionID]);
 		}
 	}
 }

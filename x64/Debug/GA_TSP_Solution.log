@@ -1,0 +1,56 @@
+﻿  GASelect.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\CityMatrix.h(17,17): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.h(11,38): warning C4305: 'initializing': truncation from 'double' to 'float'
+  GeneticAlgorithm.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\CityMatrix.h(17,17): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.h(11,38): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GeneticAlgorithm.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GeneticAlgorithm.cpp(84,11): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\utility(149,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GenerationFitness.h(26): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GenerationFitness.h(22): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+  Main.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.h(11,38): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\CityMatrix.h(17,17): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\utility(149,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GenerationFitness.h(26): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GenerationFitness.h(22): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+  Generating Code...
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GASelect.cpp(15): warning C4715: 'GASelect::select_Solution': not all control paths return a value
+  GA_TSP_Solution.vcxproj -> C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\x64\Debug\GA_TSP_Solution.exe

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GA_TSP_Solution.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneticAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GAMutate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -155,7 +155,7 @@
     <ClCompile Include="GACrossover.cpp" />
     <ClCompile Include="GAMutate.cpp" />
     <ClCompile Include="GASelect.cpp" />
-    <ClCompile Include="GA_TSP_Solution.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="GenerationFitness.cpp" />
     <ClCompile Include="GeneticAlgorithm.cpp" />
     <ClCompile Include="Solution.cpp" />

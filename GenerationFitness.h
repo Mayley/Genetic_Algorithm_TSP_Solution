@@ -8,6 +8,8 @@
 #include <fstream>
 #include <sstream>
 
+#include "Settings.h"
+
 class GenerationFitness
 {
 public:
@@ -27,7 +29,7 @@ private:
 
 	std::vector<std::vector<float>> generationStatFromFile;
 
-	std::string const file_name = "generation_fitness_stats.csv";
+	std::string const file_name = "generation_fitness_stats.csv" ;
 
 	void set_Best_Worst(float fitness);
 	void set_Average(float average);

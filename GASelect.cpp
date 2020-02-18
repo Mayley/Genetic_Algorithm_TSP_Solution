@@ -3,11 +3,11 @@
 /* Returns two parents selected with different methods 
    defaulted to tournament and highest selection. 
    Pass in current generation population*/
-std::vector<Solution> GASelect::select_Solution(selectionMethodType selectionMethod) {
+std::vector<Solution> GASelect::select_Solution(SelectionMethod selectionMethod) {
 	// Return two parents using diferent selection methods.	
 	switch (selectionMethod)
 	{
-	case selectionMethodType::SELECT_TOURNAMENT:
+	case SelectionMethod::TOURNAMENT:
 		return tournament();
 	default:
 		break;

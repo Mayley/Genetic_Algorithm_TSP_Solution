@@ -2,8 +2,6 @@
 #define GENETIC_ALGORITHM_H
 
 #include <set>
-#include <unordered_set>
-#include <unordered_map>
 #include <stdlib.h>
 #include <algorithm>
 #include <time.h>
@@ -15,8 +13,6 @@
 #include "GASelect.h"
 #include "GACrossover.h"
 #include "GAMutate.h"
-#include "Solution.h"
-#include "Settings.h"
 
 
 class GeneticAlgorithm
@@ -45,7 +41,7 @@ private:
 	//Select two parents from list with some method and return them
 	std::vector<Solution> select_Parents();
 	/* Mix the genes of the two parents too produce offspring */
-	std::vector<Solution> crossover(std::vector<Solution> parent);
+	std::vector<Solution> crossover(std::vector<Solution> parents);
 	/* Chance to mutate each gene of each offspring */
 	std::vector<Solution> mutate(std::vector<Solution> offspring);
 	//Use tournament selection and replace lowest fitness from tournament

@@ -54,13 +54,13 @@ void GeneticAlgorithm::save_Generation_Fitness_Stats() {
 /* Select Two parents using different selection method. Outputs two parent solutions. */
 std::vector<Solution> GeneticAlgorithm::select_Parents() {
 	GASelect sel(population);
-	return sel.select_Solution(selectionMethodType::SELECT_TOURNAMENT);
+	return sel.select_Solution(SelectionMethod::TOURNAMENT);
 }
 
 /* Crossover genes of parent solutions (exact copy or different) */
-std::vector<Solution> GeneticAlgorithm::crossover(std::vector<Solution> parent) {
-	GACrossover gaCrossover;
-	return gaCrossover.crossover(parent);
+std::vector<Solution> GeneticAlgorithm::crossover(std::vector<Solution> parents) {
+	GACrossover gaCrossover(parents);
+	return gaCrossover.crossover(CrossoverMethod::ORDER);
 }
 
 /* Randomly mutates each gene of the solution */
@@ -74,7 +74,7 @@ void GeneticAlgorithm::replace(std::vector<Solution> offspring) {
 	//Load select module with current pop and selecting the lowest fitness
 	GASelect sel(population, false);
 	//Select two solutions to remove, based on lowest fitness winning
-	std::vector<Solution> replaceSolution = sel.select_Solution(selectionMethodType::SELECT_TOURNAMENT);
+	std::vector<Solution> replaceSolution = sel.select_Solution(SelectionMethod::TOURNAMENT);
 
 	//Now replace these soltions with the offspring solutions
 	for (int replaceSolutionID = 0; replaceSolutionID < replaceSolution.size(); replaceSolutionID++)

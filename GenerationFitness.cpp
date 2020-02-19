@@ -97,6 +97,8 @@ void GenerationFitness::print_Top_Stats() {
 		}
 	}
 
+	generationStatFromFile.clear();
+
 	print_generation();
 }
 

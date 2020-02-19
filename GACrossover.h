@@ -4,14 +4,23 @@
 #include "Solution.h"
 #include "Settings.h"
 
+enum class CrossoverMethod {
+	ORDER,
+	MODIFIED_PARTIALLY_MAPPED_CROSSOVER,
+};
+
 class GACrossover
 {
 public:
-	std::vector<Solution> crossover(std::vector<Solution> parent);
+	GACrossover(std::vector<Solution> parents) {
+		this->parent = parents;
+	};
+	std::vector<Solution> crossover(CrossoverMethod crossoverMethod = CrossoverMethod::ORDER);
 
 private:
 	float crossoverThreshold = Settings::crossoverThreshold;
-	std::vector<Solution> order(std::vector<Solution> parent);
+	std::vector<Solution> order();
+	std::vector<Solution> parent;
 };
 
 #endif // !GA_CROSSOVER_H

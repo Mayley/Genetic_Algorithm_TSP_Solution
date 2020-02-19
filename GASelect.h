@@ -6,8 +6,8 @@
 #include "Solution.h"
 #include "Settings.h"
 
-enum class selectionMethodType : int {
-	SELECT_TOURNAMENT = 0,
+enum class SelectionMethod {
+	TOURNAMENT,
 };
 
 class GASelect
@@ -19,11 +19,11 @@ public:
 	};
 	~GASelect() {};
 	/* returns two parents based on current population depending on method type*/
-	std::vector<Solution> select_Solution(selectionMethodType selectionMethod = selectionMethodType::SELECT_TOURNAMENT );
+	std::vector<Solution> select_Solution(SelectionMethod selectionMethod = SelectionMethod::TOURNAMENT);
 	
 private:
 	int tournamentSize = Settings::tournamentSize;
-	bool selectHighestFitness = true;
+	bool selectHighestFitness;
 	std::vector<Solution> tournament();
 	std::vector<Solution> population;
 };

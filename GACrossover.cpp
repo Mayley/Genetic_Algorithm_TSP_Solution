@@ -1,22 +1,30 @@
 #include "GACrossover.h"
 
-/* Crossover genes of parent solutions (exact copy or different) */
-std::vector<Solution> GACrossover::crossover(std::vector<Solution> parent) {
+/* Crossover genes of parent solutions (exact copy or different), returns two offspring solutions */
+std::vector<Solution> GACrossover::crossover(CrossoverMethod crossoverMethod) {
 	//Random number to decide is parents should be crosb
 	float crossoverChance = (rand() % 10) / 100.0f;
 	//Check if the parents should be crossbred
 	if (crossoverChance <= crossoverThreshold)
 	{
-		//Crossbreed parents
-		return (order(parent));
+		//Select correct crossover metehod
+		switch (crossoverMethod)
+		{
+		case CrossoverMethod::ORDER:
+			return (order());
+		case CrossoverMethod::MODIFIED_PARTIALLY_MAPPED_CROSSOVER:
+			break;
+		default:
+			break;
+		}		
 	}
 
+	//If no crossbreed just return the same parents
 	return parent;
-	//Else do not crossbreed
 }
 
 /* Select subset of genes from parentA and copy to offsprint then copy rest of genes from parentB */
-std::vector<Solution> GACrossover::order(std::vector<Solution> parent) {
+std::vector<Solution> GACrossover::order() {
 	//Stores the two new offspring to replace in population
 	std::vector<Solution> offspring;
 

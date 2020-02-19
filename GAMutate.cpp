@@ -1,13 +1,13 @@
 #include "GAMutate.h"
 
 /* Method of mutating each gene of offspring */
-std::vector<Solution> GAMutate::mutate(std::vector<Solution> offspring) {
-	//Use swap mutation
-	return swap(offspring);
+std::vector<Solution> GAMutate::mutate(MutationMethod mutationMethod) {
+//Use swap mutation
+	return swap();
 }
 
 /* On gene mutation swaps selected gene with any random gene */
-std::vector<Solution> GAMutate::swap(std::vector<Solution> offspring) {
+std::vector<Solution> GAMutate::swap() {
 	//Run for each each offspring
 	for (int offspringID = 0; offspringID < offspring.size(); offspringID++)
 	{

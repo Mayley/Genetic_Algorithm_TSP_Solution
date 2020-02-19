@@ -28,9 +28,7 @@ void GeneticAlgorithm::evolve() {
 		std::cout << "Generation: " << i+1 << std::endl;
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */
-		std::vector<Solution> offspring = crossover(select_Parents());
-		std::vector<Solution> mutatedSolution = mutate(offspring);
-		replace(mutatedSolution);
+		replace(mutate(crossover(select_Parents())));
 		
 		//Save population at the end of the generation
 		save_Generation_Fitness_Stats();

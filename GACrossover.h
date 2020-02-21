@@ -6,7 +6,7 @@
 
 enum class CrossoverMethod {
 	ORDER,
-	MODIFIED_PARTIALLY_MAPPED_CROSSOVER,
+	MODIFIED_PARTIALLY_MAPPED,
 };
 
 class GACrossover
@@ -20,7 +20,11 @@ public:
 private:
 	float crossoverThreshold = Settings::crossoverThreshold;
 	std::vector<Solution> order();
+	std::vector<Solution> modified_Partially_Mapped();
 	std::vector<Solution> parent;
+	//Stores the two new offspring to replace in population
+	std::vector<Solution> offspring;
+
 };
 
 #endif // !GA_CROSSOVER_H

@@ -46,7 +46,6 @@ private:
 	std::vector<Solution> mutate(std::vector<Solution> offspring);
 	//Use tournament selection and replace lowest fitness from tournament
 	void replace(std::vector<Solution> offspring);
-	void save_Generation_Fitness_Stats();
 };
 
 #endif // !GENETIC_ALGORITHM_H

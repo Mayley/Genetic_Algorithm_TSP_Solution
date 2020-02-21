@@ -11,9 +11,9 @@ std::vector<Solution> GACrossover::crossover(CrossoverMethod crossoverMethod) {
 		switch (crossoverMethod)
 		{
 		case CrossoverMethod::ORDER:
-			return (order());
-		case CrossoverMethod::MODIFIED_PARTIALLY_MAPPED_CROSSOVER:
-			break;
+			return order();
+		case CrossoverMethod::MODIFIED_PARTIALLY_MAPPED:
+			return modified_Partially_Mapped();
 		default:
 			break;
 		}		
@@ -25,9 +25,6 @@ std::vector<Solution> GACrossover::crossover(CrossoverMethod crossoverMethod) {
 
 /* Select subset of genes from parentA and copy to offsprint then copy rest of genes from parentB */
 std::vector<Solution> GACrossover::order() {
-	//Stores the two new offspring to replace in population
-	std::vector<Solution> offspring;
-
 	//Get random index to copy genes from used for both parents
 	int ridStart, ridEnd;
 	ridEnd = rand() % parent[0].solution().size();
@@ -86,4 +83,55 @@ std::vector<Solution> GACrossover::order() {
 		//std::cout << "Parent A: " << parent[parentAid] << std::endl << "Parent B: " << parent[parentBid] << std::endl << "Offspring: " << offspring[parentAid] << std::endl;
 	}
 	return offspring;
+}
+
+/* Split parent solution into left/middle/right, copy the middle portion to offspring
+	Then fill left/right sections with parentB unless already used
+	finally fill solution with random unsued gene */
+std::vector<Solution> GACrossover::modified_Partially_Mapped() {
+	//Get split locations
+	int ridStart, ridEnd;
+	ridEnd = rand() % parent[0].solution().size();
+	if (ridEnd > 0)
+	{
+		ridStart = rand() % ridEnd;
+	}
+	else {
+		ridStart = 0;
+	}
+
+	for (int parentAid = 0; parentAid < parent.size(); parentAid++)
+	{
+		Solution blankSol;
+		blankSol.blank_solution();
+		offspring.push_back(blankSol);
+
+		//Copy genes from middle section of parent A to offspring
+		for (int position = ridStart; position < ridEnd; position++)
+		{
+			offspring[parentAid].set_gene_by_position(position, *std::next(parent[parentAid].solution().begin(), position));
+		}
+
+		//Use the next parent to fill gene
+		int parentBid = parentAid + 1;
+		//If last parent then restart from beginning
+		if (parentBid >= parent.size())
+		{
+			parentBid = 0;
+		}
+
+		// Add genes from Parent B to coresponding positions if possible
+		for (int parentGenePosition = 0; parentGenePosition < parent[parentBid].solution().size(); parentGenePosition++)
+		{
+		}
+
+		//Fill empty genes randomly
+
+
+
+		//Calculate new fitness of solution
+		offspring[parentAid].calculate_fitness();
+
+		//std::cout << "Parent A: " << parent[parentAid] << std::endl << "Parent B: " << parent[parentBid] << std::endl << "Offspring: " << offspring[parentAid] << std::endl;
+	}
 }

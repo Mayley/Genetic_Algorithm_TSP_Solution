@@ -8,12 +8,11 @@
 
 /* Headers */
 #include "CityMatrix.h"
-#include "GenerationFitness.h"
+#include "PopulationFitness.h"
 /* GA Components */
 #include "GASelect.h"
 #include "GACrossover.h"
 #include "GAMutate.h"
-
 
 class GeneticAlgorithm
 {
@@ -23,8 +22,9 @@ public:
 
 	/* Main loop: Will produce two new solutions and replace them in population for X generations */
 	void evolve();
-	void print();
-
+	void print_Population_Stats();
+	void print_Solution_Stats_From_File();
+	void clear_Fitness_Stats_File();
 private:
 	//Config variables
 	int numberOfGenerations = Settings::numberOfGenerations;
@@ -33,7 +33,7 @@ private:
 	//Stores each soltuion in a vector of population
 	std::vector<Solution> population;
 	//Stores stats about each generation
-	GenerationFitness generationFitnessStats;
+	PopulationFitness populationFitness;
 
 	//Creates a population of solutions to start with 
 	void create_Initial_Population();
@@ -46,7 +46,6 @@ private:
 	std::vector<Solution> mutate(std::vector<Solution> offspring);
 	//Use tournament selection and replace lowest fitness from tournament
 	void replace(std::vector<Solution> offspring);
-	void save_Generation_Fitness_Stats();
 };
 
 #endif // !GENETIC_ALGORITHM_H

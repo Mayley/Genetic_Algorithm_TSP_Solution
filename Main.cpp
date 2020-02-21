@@ -19,9 +19,11 @@ int main()
     {
         std::cout << "\nWhat would you like to do?" << std::endl;
         std::cout << "1: Evolve" << std::endl;
-        std::cout << "2: Print" << std::endl;
-        std::cout << "3: Reset " << std::endl;
-        std::cout << "4: Quit" << std::endl;
+        std::cout << "2: Print Current Population Stats" << std::endl;
+        std::cout << "3: Print Solution Fitness Stats from file" << std::endl;
+        std::cout << "4: Clear Stats File" << std::endl;
+        std::cout << "5: Reset Genetic Algorithm" << std::endl;
+        std::cout << "6: Quit" << std::endl;
         std::cin >> menuChoice;
 
         switch (menuChoice)
@@ -30,13 +32,19 @@ int main()
             ga->evolve();
             break;
         case 2:
-            ga->print();
+            ga->print_Population_Stats();
             break;
         case 3:
+            ga->print_Solution_Stats_From_File();
+            break;
+        case 4:
+            ga->clear_Fitness_Stats_File();
+            break;
+        case 5:
             delete ga;
             ga = new GeneticAlgorithm;
             break;
-        case 4:
+        case 6:
             return 1;
         default:
             break;

@@ -11,10 +11,7 @@ enum class MutationMethod {
 class GAMutate
 {
 public:
-	GAMutate(std::vector<Solution> offspring) {
-		this->offspring = offspring;
-	}
-	std::vector<Solution> mutate(MutationMethod mutationMethod = MutationMethod::SWAP);
+	std::vector<Solution> mutate(std::vector<Solution> offspring, MutationMethod mutationMethod = MutationMethod::SWAP);
 
 private:
 	float mutationThreshold = Settings::mutationThreshold;

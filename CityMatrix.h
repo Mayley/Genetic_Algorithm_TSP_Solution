@@ -14,7 +14,7 @@ public:
 	~CityMatrix() {};
 
 	int travel_Distance(int cityA, int cityB);
-	int dataSize() { return travelDistance.size(); };
+	size_t dataSize() { return travelDistance.size(); };
 
 private:
 	std::vector<std::vector<int>> travelDistance;

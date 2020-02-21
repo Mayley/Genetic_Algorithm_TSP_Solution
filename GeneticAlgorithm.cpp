@@ -64,7 +64,7 @@ std::vector<Solution> GeneticAlgorithm::crossover(std::vector<Solution> parents)
 /* Randomly mutates each gene of the solution */
 std::vector<Solution> GeneticAlgorithm::mutate(std::vector<Solution> offspring) {
 	GAMutate gaMutate;
-	return gaMutate.mutate(offspring);	
+	return gaMutate.mutate(offspring, MutationMethod::SWAP);	
 }
 
 /* Take the offspring and replace them with the lowest rated solution from population using tournament method*/

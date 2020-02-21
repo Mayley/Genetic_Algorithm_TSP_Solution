@@ -1,9 +1,19 @@
 #include "GAMutate.h"
 
 /* Method of mutating each gene of offspring */
-std::vector<Solution> GAMutate::mutate(MutationMethod mutationMethod) {
-//Use swap mutation
-	return swap();
+std::vector<Solution> GAMutate::mutate(std::vector<Solution> offspring, MutationMethod mutationMethod) {
+	this->offspring = offspring;
+
+	//Return offspring based on mutation method where default is swap;
+	switch (mutationMethod)
+	{
+	case MutationMethod::SWAP:
+		return swap();
+		break;
+	default:
+		return swap();
+		break;
+	}
 }
 
 /* On gene mutation swaps selected gene with any random gene */

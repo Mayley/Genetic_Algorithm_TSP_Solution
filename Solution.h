@@ -19,7 +19,7 @@ private:
 
 	std::vector<int> gene;
 	float fitness_ = 0.0f;
-	int geneLength = cityMatrix.dataSize();
+	size_t geneLength = cityMatrix.dataSize();
 
 public:
 	float fitness() { return fitness_; };

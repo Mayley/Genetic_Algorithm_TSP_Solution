@@ -34,6 +34,12 @@ public:
 	bool operator< (const Solution& rhs) const {
 		return this->fitness_ < rhs.fitness_;
 	}
+	bool operator< (const float& rhs) const {
+		return this->fitness_ < rhs;
+	}
+	bool operator> (const float& rhs) const {
+		return this->fitness_ > rhs;
+	}
 	friend std::ostream& operator<<(std::ostream& os, const Solution sol) {
 		os.precision(10);
 		os << "Solution: ";

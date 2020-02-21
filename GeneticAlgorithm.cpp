@@ -31,22 +31,20 @@ void GeneticAlgorithm::evolve() {
 		replace(mutate(crossover(select_Parents())));
 		
 		//Save population at the end of the generation
-		save_Generation_Fitness_Stats();
+		populationFitness.save(population);
 	}
 }
 
-/* after each generation save the stats (best, average, worst) from solutions in population to a file "generation_fitness.txt" */
-void GeneticAlgorithm::save_Generation_Fitness_Stats() {
-	//Store current generations fitness values in vector to pass to fitness storeage
-	std::vector<float> generationFitness;
-	//Loop through each solution in population checking agaisnt best and worst fitness
-	for (int i = 0; i < population.size(); i++)
-	{
-		generationFitness.push_back(population[i].fitness());
-	}
+void GeneticAlgorithm::print_Population_Stats() {
+	populationFitness.print();
+}
 
-	//save stats
-	generationFitnessStats.save(generationFitness);
+void GeneticAlgorithm::print_Solution_Stats_From_File() {
+	populationFitness.print_from_file();
+}
+
+void GeneticAlgorithm::clear_Fitness_Stats_File() {
+	populationFitness.clear_stats_file();
 }
 
 /* Select Two parents using different selection method. Outputs two parent solutions. */
@@ -85,8 +83,4 @@ void GeneticAlgorithm::replace(std::vector<Solution> offspring) {
 			population.push_back(offspring[replaceSolutionID]);
 		}
 	}
-}
-
-void GeneticAlgorithm::print() {
-	generationFitnessStats.print_Top_Stats();
 }

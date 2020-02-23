@@ -4,14 +4,10 @@
 #include "Solution.h"
 #include "Settings.h"
 
-enum class MutationMethod {
-	SWAP,
-};
-
 class GAMutate
 {
 public:
-	std::vector<Solution> mutate(std::vector<Solution> offspring, MutationMethod mutationMethod = MutationMethod::SWAP);
+	std::vector<Solution> mutate(std::vector<Solution> offspring, MutationMethod mutationMethod = Settings::mutationMethod);
 
 private:
 	float mutationThreshold = Settings::mutationThreshold;

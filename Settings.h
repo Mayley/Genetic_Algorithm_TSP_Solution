@@ -3,16 +3,29 @@
 
 #include <string>
 
-namespace Settings {
-	int const numberOfGenerations = 500;
-	int const solutionLength = 48;
-	int const tournamentSize = 4;
-	float const crossoverThreshold = 0.7f;
-	float const mutationThreshold = 0.02f;
-	int const populationSize = 50;
+enum class CrossoverMethod {
+	ORDER,
+	EDGE_RECOMBINATION,
+};
+
+enum class MutationMethod {
+	SWAP,
+};
+
+ namespace Settings {
+	static int numberOfGenerations = 500;
+	static int solutionLength = 48;
+	static int tournamentSize = 4;
+	static CrossoverMethod crossoverMethod = CrossoverMethod::ORDER;
+	static float crossoverThreshold = 0.7f;
+	static MutationMethod mutationMethod = MutationMethod::SWAP;
+	static float mutationThreshold = 0.02f;
+	static int populationSize = 50;
 }
 
-
+ /* Returns the string for the CrossoverMethod enum, 
+	by defaut returns long strinb, but true will return shorthand*/
+ std::string crossover_Method_String(bool abreviated = false);
 
 #endif // !GA_SETTINGS_H
 

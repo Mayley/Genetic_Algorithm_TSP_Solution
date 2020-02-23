@@ -24,7 +24,7 @@ void Solution::calculate_fitness() {
 	for (int geneID = 0; geneID < gene.size(); geneID++)
 	{
 		//If its last gene then use gene 0 as second ID
-		if (geneID ==gene.size() - 1) {
+		if (geneID == gene.size() - 1) {
 			distance += cityMatrix.travel_Distance(gene[geneID], 0);
 		}
 		else {

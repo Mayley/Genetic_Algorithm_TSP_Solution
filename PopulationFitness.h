@@ -15,12 +15,12 @@
 class PopulationFitness
 {
 public:
-	PopulationFitness() { reset_Stats(); };
+	PopulationFitness(std::vector<Solution> *population);
 	~PopulationFitness() {};
 
 	/* Save best, worst, average fitness of the population saving it to a file*/
-	void save(std::vector<Solution> population);
-	void print();
+	void save();
+	void print_Population_Stats();
 	void print_from_file();
 	void clear_stats_file();
 
@@ -31,12 +31,14 @@ private:
 		{"best",1},
 		{"average",NULL}
 	};
-
-	std::string const file_name = "generation_fitness_stats.csv";
-	std::vector<Solution> population;
+	
+	std::string fileName = crossover_Method_String(true) + "_generation_stats.csv";
+	std::vector<Solution> *population;
 
 	void reset_Stats();
 	void save_To_File();
 	void load_from_file();
+	void set_Stats();
+	void print();
 };
 #endif // !GENERATION_FITNESS_H

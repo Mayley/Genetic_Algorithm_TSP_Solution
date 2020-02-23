@@ -39,6 +39,9 @@
     <ClCompile Include="PopulationFitness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneticAlgorithm.h">
@@ -70,13 +73,11 @@
     <None Include="distance_matrix.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="distance_matrix_changed.csv">
+    <None Include="ER_generation_stats.csv">
       <Filter>Resource Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="generation_fitness_stats.txt">
+    <None Include="OX_generation_stats.csv">
       <Filter>Resource Files</Filter>
-    </Text>
+    </None>
   </ItemGroup>
 </Project>

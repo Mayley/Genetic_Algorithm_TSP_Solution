@@ -1,7 +1,7 @@
 #include "GeneticAlgorithm.h"
 
 /* Create and populate a GA saving the first generations stats */
-GeneticAlgorithm::GeneticAlgorithm() {
+GeneticAlgorithm::GeneticAlgorithm() : populationFitness(&population) {
 	//Intialise srand
 	srand(time(NULL));
 	create_Initial_Population();
@@ -31,12 +31,12 @@ void GeneticAlgorithm::evolve() {
 		replace(mutate(crossover(select_Parents())));
 		
 		//Save population at the end of the generation
-		populationFitness.save(population);
+		populationFitness.save();
 	}
 }
 
 void GeneticAlgorithm::print_Population_Stats() {
-	populationFitness.print();
+	populationFitness.print_Population_Stats();
 }
 
 void GeneticAlgorithm::print_Solution_Stats_From_File() {
@@ -56,7 +56,7 @@ std::vector<Solution> GeneticAlgorithm::select_Parents() {
 /* Crossover genes of parent solutions (exact copy or different) */
 std::vector<Solution> GeneticAlgorithm::crossover(std::vector<Solution> parents) {
 	GACrossover gaCrossover(parents);
-	return gaCrossover.crossover(CrossoverMethod::ORDER);
+	return gaCrossover.crossover();
 }
 
 /* Randomly mutates each gene of the solution */

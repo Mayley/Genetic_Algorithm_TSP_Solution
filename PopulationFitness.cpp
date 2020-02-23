@@ -1,5 +1,9 @@
 #include "PopulationFitness.h"
 
+PopulationFitness::PopulationFitness(std::vector<Solution> *population) : population(population) {
+	reset_Stats();
+};
+
 void PopulationFitness::reset_Stats() {
 	stats["best"] = 0;
 	stats["worst"] = 1;
@@ -8,59 +12,61 @@ void PopulationFitness::reset_Stats() {
 
 /* Saves the best, worst, average stats of a given population to a file,
 	printing the stats at the end*/
-void PopulationFitness::save(std::vector<Solution> population) {
+void PopulationFitness::save() {
 	//reset previous stats before saving.
 	reset_Stats();
-
-	this->population = population;
-	
-	//Loop through population
-	float averageFitness = 0;
-	for (int i = 0; i < population.size(); i++)
-	{
-		//Check to see if its best or worst
-		if (population[i] > stats["best"])
-		{
-			stats["best"] = population[i].fitness();
-		}
-		else if (population[i] < stats["worst"])
-		{
-			stats["worst"] = population[i].fitness();
-		}
-
-		//Add to average to get the total fitness of all in population
-		averageFitness += population[i].fitness();
-	}
-
-	//Set average fitness
-	stats["average"] = (averageFitness / population.size());
-
+	//Set stats in varible for current population
+	set_Stats();
+	//Save generation stats to file
 	save_To_File();
+	//Print
 	print();
 }
 
-void PopulationFitness::print() {
-	std::cout.precision(10);
-	std::cout << std::fixed << "Best: " << stats["best"] << std::endl;
-	std::cout << "Average: " << stats["average"] << std::endl;
-	std::cout << "Worst: " << stats["worst"] << std::endl;
+void PopulationFitness::set_Stats() {
+	//Loop through population
+	float averageFitness = 0;
+	for (int i = 0; i < population->size(); i++)
+	{
+		//Check to see if its best or worst
+		if ((*population)[i] > stats["best"])
+		{
+			stats["best"] = (*population)[i].fitness();
+		}
+		else if ((*population)[i] < stats["worst"])
+		{
+			stats["worst"] = (*population)[i].fitness();
+		}
+
+		//Add to average to get the total fitness of all in population
+		averageFitness += (*population)[i].fitness();
+	}
+
+	//Set average fitness
+	stats["average"] = (averageFitness / population->size());
+}
+
+void PopulationFitness::print_Population_Stats() {
+	set_Stats();
+	print();
 }
 
 void PopulationFitness::print_from_file() {
+	reset_Stats();
 	load_from_file();
 	print();
 }
 
 void PopulationFitness::clear_stats_file() {
-	remove(file_name.c_str());
+	remove(fileName.c_str());
 }
 
 void PopulationFitness::save_To_File() {
-	std::ofstream populationFitnessFile(file_name, std::ios::app);
+	std::ofstream populationFitnessFile(fileName, std::ios::app);
 
 	//If the file doesnt't exist then create the file
 	if (!populationFitnessFile) {
-		std::ofstream generationFitnessFile(file_name);
+		std::ofstream generationFitnessFile(fileName);
 	}
 
 	//Open file else output error
@@ -71,17 +77,17 @@ void PopulationFitness::save_To_File() {
 		populationFitnessFile << std::fixed << stats["best"] << ","
 			<< stats["average"] << ","
 			<< stats["worst"] << std::endl;
-
-		populationFitnessFile.close();
 	}
 	else {
 		std::cout << "Unable to open file" << std::endl;
 	}
 
+	populationFitnessFile.close();
 }
 
 void PopulationFitness::load_from_file() {
-	std::ifstream populationFitnessFile(file_name);
+	std::ifstream populationFitnessFile(fileName);
+	int totalGenerations = 0;
 
 	//Check if we can open the file else output error
 	if (populationFitnessFile.is_open()) {
@@ -92,6 +98,9 @@ void PopulationFitness::load_from_file() {
 		//Get line by line
 		while (std::getline(populationFitnessFile, line))
 		{
+			//Increment the generation for each line
+			totalGenerations++;
+
 			//Store the current line(row) in a string stream and split by deliminater for the values
 			std::istringstream dataLine(line);
 			std::string data;
@@ -108,7 +117,7 @@ void PopulationFitness::load_from_file() {
 			{
 				stats["best"] = dataVector[0];
 			}
-			if (dataVector[1] > stats["average]"])
+			if (dataVector[1] > stats["average"])
 			{
 				stats["average"] = dataVector[1];
 			}
@@ -117,10 +126,21 @@ void PopulationFitness::load_from_file() {
 				stats["worst"] = dataVector[2];
 			}
 		}
-		//close file
-		populationFitnessFile.close();
+
+		std::cout << "Loaded Data from: " << fileName << std::endl;
+		std::cout << "Total generations recorded: " << totalGenerations << std::endl;
 	}
 	else {
 		std::cout << "Unable to open file" << std::endl;;
 	}
+
+	populationFitnessFile.close();
+}
+
+void PopulationFitness::print() {
+	std::cout.precision(10);
+	std::cout << std::fixed << "Best: " << stats["best"] << std::endl;
+	std::cout << "Average: " << stats["average"] << std::endl;
+	std::cout << "Worst: " << stats["worst"] << std::endl;
+
 }

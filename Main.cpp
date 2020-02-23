@@ -29,7 +29,7 @@ int main()
         switch (menuChoice)
         {
         case 1:
-            ga->evolve();
+            delete ga;
             break;
         case 2:
             ga->print_Population_Stats();

@@ -8,12 +8,17 @@ enum class CrossoverMethod {
 	EDGE_RECOMBINATION,
 };
 
+enum class MutationMethod {
+	SWAP,
+};
+
  namespace Settings {
 	static int numberOfGenerations = 500;
 	static int solutionLength = 48;
 	static int tournamentSize = 4;
 	static CrossoverMethod crossoverMethod = CrossoverMethod::ORDER;
 	static float crossoverThreshold = 0.7f;
+	static MutationMethod mutationMethod = MutationMethod::SWAP;
 	static float mutationThreshold = 0.02f;
 	static int populationSize = 50;
 }

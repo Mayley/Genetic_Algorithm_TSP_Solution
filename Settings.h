@@ -12,9 +12,14 @@ enum class MutationMethod {
 	SWAP,
 };
 
- namespace Settings {
+enum class SelectionMethod {
+	TOURNAMENT,
+};
+
+namespace Settings {
 	static int numberOfGenerations = 500;
 	static int solutionLength = 48;
+	static SelectionMethod selectionMethod = SelectionMethod::TOURNAMENT;
 	static int tournamentSize = 4;
 	static CrossoverMethod crossoverMethod = CrossoverMethod::ORDER;
 	static float crossoverThreshold = 0.7f;

@@ -51,13 +51,13 @@ void PopulationFitness::print_Population_Stats() {
 	print();
 }
 
-void PopulationFitness::print_from_file() {
+void PopulationFitness::print_From_File() {
 	reset_Stats();
-	load_from_file();
+	load_From_File();
 	print();
 }
 
-void PopulationFitness::clear_stats_file() {
+void PopulationFitness::clear_Stats_File() {
 	remove(fileName.c_str());
 }
 
@@ -85,7 +85,7 @@ void PopulationFitness::save_To_File() {
 	populationFitnessFile.close();
 }
 
-void PopulationFitness::load_from_file() {
+void PopulationFitness::load_From_File() {
 	std::ifstream populationFitnessFile(fileName);
 	int totalGenerations = 0;
 

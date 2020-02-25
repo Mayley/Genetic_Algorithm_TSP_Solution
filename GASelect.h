@@ -6,10 +6,6 @@
 #include "Solution.h"
 #include "Settings.h"
 
-enum class SelectionMethod {
-	TOURNAMENT,
-};
-
 class GASelect
 {
 public:
@@ -19,7 +15,7 @@ public:
 	};
 	~GASelect() {};
 	/* returns two parents based on current population depending on method type*/
-	std::vector<Solution> select_Solution(SelectionMethod selectionMethod = SelectionMethod::TOURNAMENT);
+	std::vector<Solution> select_Solution(SelectionMethod selectionMethod = Settings::selectionMethod);
 	
 private:
 	int tournamentSize = Settings::tournamentSize;

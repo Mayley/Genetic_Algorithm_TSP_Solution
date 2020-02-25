@@ -106,13 +106,13 @@ std::vector<Solution> GACrossover::edgeRecombination() {
 			if (gene == 0)
 			{
 				
-				prevGene == parent[i].solution().size() - 1;
+				prevGene = parent[i].solution().size() - 1;
 				nextGene++;
 			}
 			else if (gene == parent[i].solution().size() - 1)
 			{
 				prevGene --;
-				nextGene == 0;
+				nextGene = 0;
 			}
 			else {
 				prevGene--;

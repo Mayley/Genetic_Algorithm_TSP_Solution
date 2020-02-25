@@ -6,6 +6,8 @@ Solution::Solution() {
 	{
 		gene.push_back(i);
 	}
+
+	random_solution();
 }
 
 /* randomize a solutions gene order */

@@ -10,8 +10,6 @@ std::string crossover_Method_String(bool abreviated) {
 			return ("OX");
 		case CrossoverMethod::EDGE_RECOMBINATION:
 			return ("ER");
-		default:
-			break;
 		}
 	}
 	else {
@@ -21,8 +19,6 @@ std::string crossover_Method_String(bool abreviated) {
 			return ("ORDER");
 		case CrossoverMethod::EDGE_RECOMBINATION:
 			return ("EDGE_RECOMBINATION");
-		default:
-			break;
 		}
 	}
 

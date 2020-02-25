@@ -11,6 +11,7 @@
 class Solution
 {
 public:
+	/* Create a new random solution */
 	Solution();
 	~Solution() {};
 

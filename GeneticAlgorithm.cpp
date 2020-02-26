@@ -22,20 +22,18 @@ void GeneticAlgorithm::setup_Random_Population() {
 
 /* Gives access to the Genetic Algorithm */
 void GeneticAlgorithm::main_Menu() {
-	MenuController mc;
+	MenuController menu("Genetic Algorithm for TSP!");
 	int menuChoice;
 
-	std::vector<std::string> menuItems{
-		"Evolve",
-		"Print",
-		"Clear",
-		"Reset"
-	};
+	menu.add_Menu_Option("Evolve");
+	menu.add_Menu_Option("Print");
+	menu.add_Menu_Option("Clear");
+	menu.add_Menu_Option("Reset");
+	menu.add_Menu_Option("Settings");
 
 	do
 	{
-		mc.set_Title("Genetic Algorithm for TSP!");
-		mc.display(menuItems);
+		menu.display();
 
 		std::cin >> menuChoice;
 
@@ -45,13 +43,15 @@ void GeneticAlgorithm::main_Menu() {
 			evolve();
 			break;
 		case 2:
-			populationFitness.print_Population_Stats();
+			populationFitness.main_Menu();
 			break;
 		case 3:
 			populationFitness.clear_Stats_File();
 			break;
 		case 4:
 			setup_Random_Population();
+		case 5:
+			Settings::menu();
 		default:
 			break;
 		}
@@ -64,8 +64,8 @@ void GeneticAlgorithm::main_Menu() {
 void GeneticAlgorithm::evolve() {
 	for (int i = 0; i < numberOfGenerations; i++)
 	{	
-		std::cout << "-------------------------------------------------------------------" << std::endl;
-		std::cout << "Generation: " << i+1 << std::endl;
+		//std::cout << "-------------------------------------------------------------------" << std::endl;
+		//std::cout << "Generation: " << i+1 << std::endl;
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */
 		replace(mutate(crossover(select_Parents())));

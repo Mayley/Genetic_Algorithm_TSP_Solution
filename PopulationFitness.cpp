@@ -20,7 +20,42 @@ void PopulationFitness::save() {
 	//Save generation stats to file
 	save_To_File();
 	//Print
-	print();
+	//print();
+}
+
+void PopulationFitness::main_Menu() {
+	MenuController menu("Fitness Menu", true);
+
+	int menuChoice;
+
+	menu.add_Menu_Option("Print fitness from populatuon");
+	menu.add_Menu_Option("Print fitness from file");
+	menu.add_Menu_Option("Clear current file");
+
+	do
+	{
+		menu.display();
+
+		std::cin >> menuChoice;
+
+		switch (menuChoice)
+		{
+		case 1:
+			print_Population_Stats();
+			break;
+		case 2:
+			print_From_File();
+			break;
+		case 3:
+			clear_Stats_File();
+			break;
+		case 4:
+			clear_Stats_File();
+		default:
+			break;
+		}
+
+	} while (menuChoice > 0);
 }
 
 void PopulationFitness::set_Stats() {
@@ -74,9 +109,9 @@ void PopulationFitness::save_To_File() {
 
 		//set precision
 		populationFitnessFile.precision(10);
-		populationFitnessFile << std::fixed << stats["best"] << ","
-			<< stats["average"] << ","
-			<< stats["worst"] << std::endl;
+		populationFitnessFile << std::fixed << (1/stats["best"]) << ","
+			<< 1/stats["average"] << ","
+			<< 1/stats["worst"] << std::endl;
 	}
 	else {
 		std::cout << "Unable to open file" << std::endl;

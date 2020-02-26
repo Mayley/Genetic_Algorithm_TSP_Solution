@@ -1,8 +1,24 @@
-﻿  GeneticAlgorithm.cpp
+﻿  PopulationFitness.cpp
   The contents of <filesystem> are only available with C++17 or later.
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GeneticAlgorithm.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GeneticAlgorithm.cpp(108,11): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-  Main.cpp
-  The contents of <filesystem> are only available with C++17 or later.
-  Generating Code...
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\utility(149,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\PopulationFitness.h(37): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\PopulationFitness.h(33): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=int
+          ]
   GA_TSP_Solution.vcxproj -> C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\x64\Debug\GA_TSP_Solution.exe

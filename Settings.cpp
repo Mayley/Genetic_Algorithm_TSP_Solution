@@ -104,12 +104,14 @@ bool Settings::set_numberOfGenerations() {
 	MenuController menu("Number of generations per evolution", true);
 	int input;
 	int newGenerationCount;
+	int minimum = 50;
 
-	menu.add_Menu_Option("100");
+
 	menu.add_Menu_Option("250");
 	menu.add_Menu_Option("500");
-	menu.add_Menu_Option("750");
 	menu.add_Menu_Option("1000");
+	menu.add_Menu_Option("5000");
+	menu.add_Menu_Option("10000");
 	menu.add_Menu_Option("Own value");
 
 	do
@@ -121,30 +123,30 @@ bool Settings::set_numberOfGenerations() {
 		switch (input)
 		{
 		case 1:
-			numberOfGenerations = 100;
-			input = -1;
-			break;
-		case 2:
 			numberOfGenerations = 250;
 			input = -1;
 			break;
-		case 3:
+		case 2:
 			numberOfGenerations = 500;
 			input = -1;
 			break;
+		case 3:
+			numberOfGenerations = 1000;
+			input = -1;
+			break;
 		case 4:
-			numberOfGenerations = 750;
+			numberOfGenerations = 5000;
 			input = -1;
 			break;
 		case 5:
-			numberOfGenerations = 1000;
+			numberOfGenerations = 10000;
 			input = -1;
 			break;
 		case 6:
 			do {
-				std::cout << "Number of generations per evolution (minimum 50): ";
+				std::cout << "Number of generations per evolution (minimum " << minimum << "): ";
 				std::cin >> newGenerationCount;
-			} while (newGenerationCount <= 50);
+			} while (newGenerationCount < minimum);
 			numberOfGenerations = newGenerationCount;
 			input = -1;
 			break;
@@ -156,9 +158,10 @@ bool Settings::set_numberOfGenerations() {
 }
 
 bool Settings::set_populationSize() {
-	MenuController menu("Number of generations per evolution", true);
-	int input;
-	int newGenerationCount;
+	MenuController menu("Population size", true);
+	int menuInput;
+	int newSettingsValue;
+	int minimum = 10;
 
 	menu.add_Menu_Option("10");
 	menu.add_Menu_Option("25");
@@ -171,63 +174,68 @@ bool Settings::set_populationSize() {
 	{
 		menu.display();
 
-		std::cin >> input;
+		std::cin >> menuInput;
 
-		switch (input)
+		switch (menuInput)
 		{
 		case 1:
-			numberOfGenerations = 10;
-			input = -1;
+			populationSize = 10;
+			menuInput = -1;
 			break;
 		case 2:
-			numberOfGenerations = 25;
-			input = -1;
+			populationSize = 25;
+			menuInput = -1;
 			break;
 		case 3:
-			numberOfGenerations = 50;
-			input = -1;
+			populationSize = 50;
+			menuInput = -1;
 			break;
 		case 4:
-			numberOfGenerations = 100;
-			input = -1;
+			populationSize = 100;
+			menuInput = -1;
 			break;
 		case 5:
-			numberOfGenerations = 1000;
-			input = -1;
+			populationSize = 1000;
+			menuInput = -1;
 			break;
 		case 6:
 			do {
-				std::cout << "Number of generations per evolution (minimum 50): ";
-				std::cin >> newGenerationCount;
-			} while (newGenerationCount <= 50);
-			numberOfGenerations = newGenerationCount;
-			input = -1;
+				std::cout << "Population Size (" << minimum << "): ";
+				std::cin >> newSettingsValue;
+			} while (newSettingsValue < minimum);
+			populationSize = newSettingsValue;
+			menuInput = -1;
 			break;
 		default:
 			return false;
 			break;
 		}
-	} while (input > 0);
+	} while (menuInput > 0);
 	return false;
 }
+
 bool Settings::set_selectionMethod() {
-
+	std::cout << "To do" << std::endl;
 	return false;
 }
+
 bool Settings::set_crossoverMethod() {
-
+	std::cout << "To do" << std::endl;
 	return false;
 }
+
 bool Settings::set_crossoverThreshold() {
-
+	std::cout << "To do" << std::endl;
 	return false;
 }
+
 bool Settings::set_mutationMethod() {
 
 	return false;
 }
-bool Settings::set_mutationThreshold() {
 
+bool Settings::set_mutationThreshold() {
+	std::cout << "To do" << std::endl;
 	return false;
 }
 

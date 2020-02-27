@@ -1,24 +1,6 @@
-﻿  PopulationFitness.cpp
-  The contents of <filesystem> are only available with C++17 or later.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\utility(149,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-          and
-          [
-              _Ty2=float
-          ]
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\PopulationFitness.h(37): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
-          with
-          [
-              _Other1=const char (&)[6],
-              _Other2=int
-          ]
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\PopulationFitness.h(33): message : see reference to function template instantiation 'std::pair<const std::string,float>::pair<const char(&)[6],int,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
-          with
-          [
-              _Other1=const char (&)[6],
-              _Other2=int
-          ]
+﻿  Settings.cpp
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(21): warning C4715: 'Settings::mutation_Method_String': not all control paths return a value
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(45): warning C4715: 'Settings::crossover_Method_String': not all control paths return a value
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(11): warning C4715: 'Settings::selection_Method_String': not all control paths return a value
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(158): warning C4715: 'Settings::set_numberOfGenerations': not all control paths return a value
   GA_TSP_Solution.vcxproj -> C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\x64\Debug\GA_TSP_Solution.exe

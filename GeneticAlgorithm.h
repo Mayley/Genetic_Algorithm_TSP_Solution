@@ -16,6 +16,15 @@
 
 class GeneticAlgorithm
 {
+private:
+	//Config variables
+	int numberOfGenerations = Settings::numberOfGenerations;
+	int populationSize = Settings::populationSize;
+
+	//Stores each solution in a vector of population
+	std::vector<Solution> population;
+	//Stores stats about each generation
+	PopulationFitness populationFitness;
 public:
 	GeneticAlgorithm();
 	~GeneticAlgorithm() {};
@@ -26,15 +35,6 @@ public:
 private:
 	/* Main loop: Will produce two new solutions and replace them in population for X generations */
 	void evolve();
-
-	//Config variables
-	int numberOfGenerations = Settings::numberOfGenerations;
-	int populationSize = Settings::populationSize;
-
-	//Stores each solution in a vector of population
-	std::vector<Solution> population;
-	//Stores stats about each generation
-	PopulationFitness populationFitness;
 
 	//Creates a population of solutions to start with 
 	void setup_Random_Population();

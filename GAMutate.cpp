@@ -41,8 +41,6 @@ std::vector<Solution> GAMutate::swap() {
 				int gene2 = offspring[offspringID].get_gene_by_position(swapGenePosition);
 				offspring[offspringID].set_gene_by_position(genePosition, gene2);
 				offspring[offspringID].set_gene_by_position(swapGenePosition, gene1);
-
-				//std::cout << "Swapped : " << genePosition << " -> " << swapGenePosition << std::endl;
 			}
 		}
 	}

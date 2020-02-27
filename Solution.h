@@ -10,18 +10,15 @@
 
 class Solution
 {
-public:
-	/* Create a new random solution */
-	Solution();
-	~Solution() {};
-
 private:
-	CityMatrix cityMatrix;
+	CityMatrix* cityMatrix = cityMatrix->getInstance();
 
 	std::vector<int> gene;
-	float fitness_ = 0.0f;
-	size_t geneLength = cityMatrix.dataSize();
-
+	float fitness_;
+	size_t geneLength;
+public:
+	Solution();
+	~Solution() {};
 public:
 	float fitness() { return fitness_; };
 	std::vector<int> solution() { return gene; };

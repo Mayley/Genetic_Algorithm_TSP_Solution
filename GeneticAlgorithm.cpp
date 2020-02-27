@@ -22,14 +22,13 @@ void GeneticAlgorithm::setup_Random_Population() {
 
 /* Gives access to the Genetic Algorithm */
 void GeneticAlgorithm::main_Menu() {
-	MenuController menu("Genetic Algorithm for TSP!");
+	MenuController menu("Main Menu!", true);
 	int menuChoice;
 
 	menu.add_Menu_Option("Evolve");
 	menu.add_Menu_Option("Print");
 	menu.add_Menu_Option("Clear");
 	menu.add_Menu_Option("Reset");
-	menu.add_Menu_Option("Settings");
 
 	do
 	{
@@ -50,13 +49,12 @@ void GeneticAlgorithm::main_Menu() {
 			break;
 		case 4:
 			setup_Random_Population();
-		case 5:
-			Settings::menu();
+			break;
 		default:
 			break;
 		}
 
-	} while (menuChoice > 0);
+	} while (menuChoice > -1);
 }
 
 
@@ -64,8 +62,14 @@ void GeneticAlgorithm::main_Menu() {
 void GeneticAlgorithm::evolve() {
 	for (int i = 0; i < numberOfGenerations; i++)
 	{	
-		//std::cout << "-------------------------------------------------------------------" << std::endl;
-		//std::cout << "Generation: " << i+1 << std::endl;
+		if (debugMode)
+		{
+			std::cout << "-------------------------------------------------------------------" << std::endl;
+			std::cout << "Generation: " << i + 1 << std::endl;
+		}
+		else {
+			std::cout << i << ",";
+		}
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */
 		replace(mutate(crossover(select_Parents())));

@@ -5,7 +5,7 @@ PopulationFitness::PopulationFitness(std::vector<Solution> *population) : popula
 };
 
 void PopulationFitness::reset_Stats() {
-	stats["best"] = 0;
+	stats["best"] = -1;
 	stats["worst"] = 1;
 	stats["average"] = NULL;
 }
@@ -19,8 +19,11 @@ void PopulationFitness::save() {
 	set_Stats();
 	//Save generation stats to file
 	save_To_File();
-	//Print
-	//print();
+	if (debugMode)
+	{
+		//Print
+		print();
+	}
 }
 
 void PopulationFitness::main_Menu() {
@@ -68,7 +71,8 @@ void PopulationFitness::set_Stats() {
 		{
 			stats["best"] = (*population)[i].fitness();
 		}
-		else if ((*population)[i] < stats["worst"])
+		
+		if ((*population)[i] < stats["worst"])
 		{
 			stats["worst"] = (*population)[i].fitness();
 		}

@@ -19,6 +19,8 @@ enum class SelectionMethod {
 	TOURNAMENT,
 };
 
+static bool debugMode = false;
+
 namespace Settings {
 	static int numberOfGenerations = 5000;
 	static int solutionLength = 48;
@@ -28,11 +30,9 @@ namespace Settings {
 	static float crossoverThreshold = 0.7f;
 	static MutationMethod mutationMethod = MutationMethod::SWAP;
 	static float mutationThreshold = 0.02f;
-	static int populationSize = 50;
+	static int populationSize = 10;
 
 	void menu();
-	void display();
-	void change();
 
 	bool set_numberOfGenerations();
 	bool set_selectionMethod();

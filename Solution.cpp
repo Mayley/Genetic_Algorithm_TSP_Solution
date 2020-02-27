@@ -1,11 +1,16 @@
 #include "Solution.h"
 
 Solution::Solution() {
+	fitness_ = 0.0f;
+	geneLength = cityMatrix->dataSize();
+
 	//Setup vector with ID's for all genes upto gene length
 	for (int i = 0; i < geneLength; i++)
 	{
 		gene.push_back(i);
 	}
+
+	random_solution();
 }
 
 /* randomize a solutions gene order */
@@ -25,10 +30,10 @@ void Solution::calculate_fitness() {
 	{
 		//If its last gene then use gene 0 as second ID
 		if (geneID == gene.size() - 1) {
-			distance += cityMatrix.travel_Distance(gene[geneID], 0);
+			distance += cityMatrix->travel_Distance(gene[geneID], 0);
 		}
 		else {
-			distance += cityMatrix.travel_Distance(gene[geneID], gene[geneID + 1]);
+			distance += cityMatrix->travel_Distance(gene[geneID], gene[geneID + 1]);
 		}
 	}
 

@@ -11,6 +11,7 @@
 //Headers
 #include "Settings.h"
 #include "Solution.h"
+#include "MenuController.h"
 
 class PopulationFitness
 {
@@ -20,9 +21,12 @@ public:
 
 	/* Save best, worst, average fitness of the population saving it to a file*/
 	void save();
+	void main_Menu();
+
 	void print_Population_Stats();
-	void print_from_file();
-	void clear_stats_file();
+	void print_From_File();
+	/* Clear current saved fitness stats for selected crossover method*/
+	void clear_Stats_File();
 
 private:
 	//Record Fitness Stats
@@ -32,12 +36,12 @@ private:
 		{"average",NULL}
 	};
 	
-	std::string fileName = crossover_Method_String(true) + "_generation_stats.csv";
+	std::string fileName = Settings::crossover_Method_String(true) + "_generation_stats.csv";
 	std::vector<Solution> *population;
 
 	void reset_Stats();
 	void save_To_File();
-	void load_from_file();
+	void load_From_File();
 	void set_Stats();
 	void print();
 };

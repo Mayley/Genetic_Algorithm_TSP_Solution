@@ -5,7 +5,7 @@ PopulationFitness::PopulationFitness(std::vector<Solution> *population) : popula
 };
 
 void PopulationFitness::reset_Stats() {
-	stats["best"] = 0;
+	stats["best"] = -1;
 	stats["worst"] = 1;
 	stats["average"] = NULL;
 }
@@ -19,8 +19,46 @@ void PopulationFitness::save() {
 	set_Stats();
 	//Save generation stats to file
 	save_To_File();
-	//Print
-	print();
+	if (debugMode)
+	{
+		//Print
+		print();
+	}
+}
+
+void PopulationFitness::main_Menu() {
+	MenuController menu("Fitness Menu", true);
+
+	int menuChoice;
+
+	menu.add_Menu_Option("Print fitness from populatuon");
+	menu.add_Menu_Option("Print fitness from file");
+	menu.add_Menu_Option("Clear current file");
+
+	do
+	{
+		menu.display();
+
+		std::cin >> menuChoice;
+
+		switch (menuChoice)
+		{
+		case 1:
+			print_Population_Stats();
+			break;
+		case 2:
+			print_From_File();
+			break;
+		case 3:
+			clear_Stats_File();
+			break;
+		case 4:
+			clear_Stats_File();
+		default:
+			break;
+		}
+
+	} while (menuChoice > 0);
 }
 
 void PopulationFitness::set_Stats() {
@@ -33,7 +71,8 @@ void PopulationFitness::set_Stats() {
 		{
 			stats["best"] = (*population)[i].fitness();
 		}
-		else if ((*population)[i] < stats["worst"])
+		
+		if ((*population)[i] < stats["worst"])
 		{
 			stats["worst"] = (*population)[i].fitness();
 		}
@@ -51,13 +90,13 @@ void PopulationFitness::print_Population_Stats() {
 	print();
 }
 
-void PopulationFitness::print_from_file() {
+void PopulationFitness::print_From_File() {
 	reset_Stats();
-	load_from_file();
+	load_From_File();
 	print();
 }
 
-void PopulationFitness::clear_stats_file() {
+void PopulationFitness::clear_Stats_File() {
 	remove(fileName.c_str());
 }
 
@@ -74,9 +113,9 @@ void PopulationFitness::save_To_File() {
 
 		//set precision
 		populationFitnessFile.precision(10);
-		populationFitnessFile << std::fixed << stats["best"] << ","
-			<< stats["average"] << ","
-			<< stats["worst"] << std::endl;
+		populationFitnessFile << std::fixed << (1/stats["best"]) << ","
+			<< 1/stats["average"] << ","
+			<< 1/stats["worst"] << std::endl;
 	}
 	else {
 		std::cout << "Unable to open file" << std::endl;
@@ -85,7 +124,7 @@ void PopulationFitness::save_To_File() {
 	populationFitnessFile.close();
 }
 
-void PopulationFitness::load_from_file() {
+void PopulationFitness::load_From_File() {
 	std::ifstream populationFitnessFile(fileName);
 	int totalGenerations = 0;
 

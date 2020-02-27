@@ -49,12 +49,8 @@ std::vector<Solution> GASelect::tournament() {
 				std::cout << "Error in tournament Selection rid" << std::endl;
 			}
 			
-
 			//Add solution to tournament
 			tournament.insert(selectedSolution);
-
-			//Remove from pool for next tournament
-			population.erase(population.begin() + rid);
 		}
 
 		//Return the required parent based on highest or lowest first.

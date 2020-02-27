@@ -4,28 +4,72 @@
 GeneticAlgorithm::GeneticAlgorithm() : populationFitness(&population) {
 	//Intialise srand
 	srand(time(NULL));
-	create_Initial_Population();
+	setup_Random_Population();
 }
 
 /* create initial population upto populationSize */
-void GeneticAlgorithm::create_Initial_Population() {
+void GeneticAlgorithm::setup_Random_Population() {
 	Solution sol;
 	//Create and add solution to population
 	for (int i = 0; i < populationSize; i++)
 	{
-		//Randomise the solution
+		//Randomise the solution and add to population
 		sol.random_solution();
 		//Add solution to population
 		population.push_back(sol);
 	}
 }
 
+/* Gives access to the Genetic Algorithm */
+void GeneticAlgorithm::main_Menu() {
+	MenuController menu("Main Menu!", true);
+	int menuChoice;
+
+	menu.add_Menu_Option("Evolve");
+	menu.add_Menu_Option("Print");
+	menu.add_Menu_Option("Clear");
+	menu.add_Menu_Option("Reset");
+
+	do
+	{
+		menu.display();
+
+		std::cin >> menuChoice;
+
+		switch (menuChoice)
+		{
+		case 1:
+			evolve();
+			break;
+		case 2:
+			populationFitness.main_Menu();
+			break;
+		case 3:
+			populationFitness.clear_Stats_File();
+			break;
+		case 4:
+			setup_Random_Population();
+			break;
+		default:
+			break;
+		}
+
+	} while (menuChoice > -1);
+}
+
+
 /* Main loop of alhorithm. Runs for X generations */
 void GeneticAlgorithm::evolve() {
 	for (int i = 0; i < numberOfGenerations; i++)
 	{	
-		std::cout << "-------------------------------------------------------------------" << std::endl;
-		std::cout << "Generation: " << i+1 << std::endl;
+		if (debugMode)
+		{
+			std::cout << "-------------------------------------------------------------------" << std::endl;
+			std::cout << "Generation: " << i + 1 << std::endl;
+		}
+		else {
+			std::cout << i << ",";
+		}
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */
 		replace(mutate(crossover(select_Parents())));
@@ -33,18 +77,6 @@ void GeneticAlgorithm::evolve() {
 		//Save population at the end of the generation
 		populationFitness.save();
 	}
-}
-
-void GeneticAlgorithm::print_Population_Stats() {
-	populationFitness.print_Population_Stats();
-}
-
-void GeneticAlgorithm::print_Solution_Stats_From_File() {
-	populationFitness.print_from_file();
-}
-
-void GeneticAlgorithm::clear_Fitness_Stats_File() {
-	populationFitness.clear_stats_file();
 }
 
 /* Select Two parents using different selection method. Outputs two parent solutions. */

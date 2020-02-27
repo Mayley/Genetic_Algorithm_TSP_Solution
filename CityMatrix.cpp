@@ -1,5 +1,7 @@
 #include "CityMatrix.h"
 
+CityMatrix* CityMatrix::instance = 0;
+
 /* Load the distance between cities from a csv file */
 void CityMatrix::load_Travel_Distance_From_File() {
 	std::ifstream cityMatrixFile(cityMatrixFileName);
@@ -51,5 +53,5 @@ void CityMatrix::print_Matrix() {
 /* Input two city ID's and et the distance back between them from travelDistance[a][b]*/
 int CityMatrix::travel_Distance(int cityA, int cityB) {
 	//std::cout << travelDistance[cityA][cityB] << std::endl;
-	return travelDistance[cityA][cityB];
+	return this->travelDistance[cityA][cityB];
 }

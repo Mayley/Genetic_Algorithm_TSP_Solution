@@ -80,7 +80,12 @@ std::vector<Solution> GACrossover::order() {
 		//Calculate new fitness of solution
 		offspring[parentAid].calculate_fitness();
 
-		//std::cout << "Parent A: " << parent[parentAid] << std::endl << "Parent B: " << parent[parentBid] << std::endl << "Offspring: " << offspring[parentAid] << std::endl;
+		if (debugMode)
+		{
+			std::cout << "\nParent A: " << parent[parentAid] << std::endl;
+			std::cout << "Parent B: " << parent[parentBid] << std::endl;
+			std::cout << "Offspring: " << offspring[parentAid] << std::endl;
+		}
 	}
 	return offspring;
 }

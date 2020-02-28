@@ -110,10 +110,7 @@ void PopulationFitness::save_To_File() {
 
 	//Open file else output error
 	if (populationFitnessFile.is_open()) {
-
-		//set precision
-		populationFitnessFile.precision(10);
-		populationFitnessFile << std::fixed << (1/stats["best"]) << ","
+		populationFitnessFile << (1/stats["best"]) << ","
 			<< 1/stats["average"] << ","
 			<< 1/stats["worst"] << std::endl;
 	}
@@ -177,8 +174,7 @@ void PopulationFitness::load_From_File() {
 }
 
 void PopulationFitness::print() {
-	std::cout.precision(10);
-	std::cout << std::fixed << "Best: " << stats["best"] << std::endl;
+	std::cout << "Best: " << stats["best"] << std::endl;
 	std::cout << "Average: " << stats["average"] << std::endl;
 	std::cout << "Worst: " << stats["worst"] << std::endl;
 

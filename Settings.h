@@ -19,18 +19,17 @@ enum class SelectionMethod {
 	TOURNAMENT,
 };
 
-static bool debugMode = false;
+static bool debugMode = true;
 
 namespace Settings {
-	static int numberOfGenerations = 5000;
-	static int solutionLength = 48;
+	static int numberOfGenerations = 1000;
 	static SelectionMethod selectionMethod = SelectionMethod::TOURNAMENT;
 	static int tournamentSize = 4;
 	static CrossoverMethod crossoverMethod = CrossoverMethod::ORDER;
 	static float crossoverThreshold = 0.7f;
 	static MutationMethod mutationMethod = MutationMethod::SWAP;
 	static float mutationThreshold = 0.02f;
-	static int populationSize = 10;
+	static int populationSize = 50;
 
 	void menu();
 

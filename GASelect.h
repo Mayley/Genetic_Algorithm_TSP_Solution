@@ -9,19 +9,17 @@
 class GASelect
 {
 public:
-	GASelect(std::vector<Solution> currentPopulation, bool selectHighestFitness = true) {
-		population = currentPopulation;
-		this->selectHighestFitness = selectHighestFitness;
-	};
+	GASelect(std::vector<Solution> *population) : population(population) {};
 	~GASelect() {};
 	/* returns two parents based on current population depending on method type*/
-	std::vector<Solution> select_Solution(SelectionMethod selectionMethod = Settings::selectionMethod);
+	std::vector<Solution> select_Solution(bool highestFitness = true);
 	
 private:
+	SelectionMethod selectionMethod = Settings::selectionMethod;
 	int tournamentSize = Settings::tournamentSize;
-	bool selectHighestFitness;
+	bool highestFitness;
 	std::vector<Solution> tournament();
-	std::vector<Solution> population;
+	std::vector<Solution> *population;
 };
 
 #endif // !GA_SELECT_H

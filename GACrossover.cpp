@@ -44,7 +44,7 @@ std::vector<Solution> GACrossover::order() {
 		offspring.push_back(blankSol);
 
 		//Get gene from parent A solution position (for ridStart - End) and change offspringSolution genepositon to the copied gene
-		for (int position = ridStart; position < ridEnd; position++)
+		for (int position = ridStart; position <= ridEnd; position++)
 		{
 			offspring[parentAid].set_gene_by_position(position, *std::next(parent[parentAid].solution().begin(), position));
 		}
@@ -82,7 +82,8 @@ std::vector<Solution> GACrossover::order() {
 
 		if (debugMode)
 		{
-			std::cout << "\nParent A: " << parent[parentAid] << std::endl;
+			std::cout << "Cut between: " << ridStart << " -> " << ridEnd << std::endl;
+			std::cout << "Parent A: " << parent[parentAid] << std::endl;
 			std::cout << "Parent B: " << parent[parentBid] << std::endl;
 			std::cout << "Offspring: " << offspring[parentAid] << std::endl;
 		}

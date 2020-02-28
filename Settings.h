@@ -19,7 +19,7 @@ enum class SelectionMethod {
 	TOURNAMENT,
 };
 
-static bool debugMode = true;
+static bool debugMode = false;
 
 namespace Settings {
 	static int numberOfGenerations = 1000;

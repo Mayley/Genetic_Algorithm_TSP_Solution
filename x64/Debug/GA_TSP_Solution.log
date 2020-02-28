@@ -1,8 +1,8 @@
 ﻿  CityMatrix.cpp
   GACrossover.cpp
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GACrossover.cpp(114,47): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GACrossover.cpp(188,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GACrossover.cpp(199,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GACrossover.cpp(115,47): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GACrossover.cpp(189,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GACrossover.cpp(200,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   GAMutate.cpp
   GASelect.cpp
   GeneticAlgorithm.cpp
@@ -33,11 +33,7 @@ C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programm
               _Other1=const char (&)[6],
               _Other2=int
           ]
-  Settings.cpp
+  Solution.cpp
   Generating Code...
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(11): warning C4715: 'Settings::selection_Method_String': not all control paths return a value
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(21): warning C4715: 'Settings::mutation_Method_String': not all control paths return a value
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(45): warning C4715: 'Settings::crossover_Method_String': not all control paths return a value
-C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\Settings.cpp(158): warning C4715: 'Settings::set_numberOfGenerations': not all control paths return a value
 C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\GASelect.cpp(17): warning C4715: 'GASelect::select_Solution': not all control paths return a value
   GA_TSP_Solution.vcxproj -> C:\Users\Myles\OneDrive - UWE Bristol (Students)\Documents\#Uni\Modules\Programming in C++\GA & TSP Assignment\Genetic_Algorithm_TSP_Solution\x64\Debug\GA_TSP_Solution.exe

@@ -3,7 +3,9 @@
 /* Returns two parents selected with different methods 
    defaulted to tournament and highest selection. 
    Pass in current generation population*/
-std::vector<Solution> GASelect::select_Solution(SelectionMethod selectionMethod) {
+std::vector<Solution> GASelect::select_Solution(bool highestFitness) {
+	this->highestFitness = highestFitness;
+
 	// Return two parents using diferent selection methods.	
 	switch (selectionMethod)
 	{
@@ -29,18 +31,18 @@ std::vector<Solution> GASelect::tournament() {
 		{
 			//Get random solution ID to add to tournament
 			int rid;
-			if (population.size() > 1)
+			if (population->size() > 1)
 			{
-				rid = rand() % population.size();
+				rid = rand() % population->size();
 			}
 			else {
 				rid = 0;
 			}
 
 			//Get solution from population using rid as index position
-			auto it = std::next(population.begin(), rid);
+			auto it = std::next(population->begin(), rid);
 			Solution selectedSolution;
-			if (it != population.end())
+			if (it != population->end())
 			{
 				//Solution in tournament
 				selectedSolution = *it;
@@ -54,7 +56,7 @@ std::vector<Solution> GASelect::tournament() {
 		}
 
 		//Return the required parent based on highest or lowest first.
-		if (selectHighestFitness)
+		if (highestFitness)
 		{
 			//Ordered list (<) so highest fitness is last
 			parents.push_back(*std::next(tournament.begin(), tournament.size() - 1));

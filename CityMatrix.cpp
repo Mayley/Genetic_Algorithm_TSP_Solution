@@ -1,4 +1,5 @@
 #include "CityMatrix.h"
+#include "Settings.h"
 
 CityMatrix* CityMatrix::instance = 0;
 
@@ -32,7 +33,10 @@ void CityMatrix::load_Travel_Distance_From_File() {
 		std::cout << "Unable to open file" << std::endl;;
 	}
 
-	// print_Matrix();
+	if (debugMode)
+	{
+		print_Matrix();
+	}
 }
 
 /* Print out the city matrix to check values */

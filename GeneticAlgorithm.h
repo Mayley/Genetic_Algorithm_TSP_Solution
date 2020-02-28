@@ -18,16 +18,18 @@ class GeneticAlgorithm
 {
 private:
 	//Config variables
-	int numberOfGenerations = Settings::numberOfGenerations;
+	int *numberOfGenerations;
 	int populationSize = Settings::populationSize;
 
 	//Stores each solution in a vector of population
 	std::vector<Solution> population;
 	//Stores stats about each generation
 	PopulationFitness populationFitness;
+
+	GASelect *gaSelect;
 public:
 	GeneticAlgorithm();
-	~GeneticAlgorithm() {};
+	~GeneticAlgorithm();
 
 	/* Main access to the GA*/
 	void main_Menu();

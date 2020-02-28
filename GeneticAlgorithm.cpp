@@ -5,6 +5,13 @@ GeneticAlgorithm::GeneticAlgorithm() : populationFitness(&population) {
 	//Intialise srand
 	srand(time(NULL));
 	setup_Random_Population();
+
+	numberOfGenerations = &Settings::numberOfGenerations;
+	gaSelect = new GASelect(&population);
+}
+
+GeneticAlgorithm::~GeneticAlgorithm() {
+	delete gaSelect;
 }
 
 /* create initial population upto populationSize */
@@ -29,6 +36,7 @@ void GeneticAlgorithm::main_Menu() {
 	menu.add_Menu_Option("Print");
 	menu.add_Menu_Option("Clear");
 	menu.add_Menu_Option("Reset");
+	menu.add_Menu_Option("Settings");
 
 	do
 	{
@@ -50,6 +58,9 @@ void GeneticAlgorithm::main_Menu() {
 		case 4:
 			setup_Random_Population();
 			break;
+		case 5:
+			Settings::menu();
+			break;
 		default:
 			break;
 		}
@@ -57,10 +68,9 @@ void GeneticAlgorithm::main_Menu() {
 	} while (menuChoice > -1);
 }
 
-
 /* Main loop of alhorithm. Runs for X generations */
 void GeneticAlgorithm::evolve() {
-	for (int i = 0; i < numberOfGenerations; i++)
+	for (int i = 0; i < Settings::numberOfGenerations; i++)
 	{	
 		if (debugMode)
 		{
@@ -68,7 +78,7 @@ void GeneticAlgorithm::evolve() {
 			std::cout << "Generation: " << i + 1 << std::endl;
 		}
 		else {
-			std::cout << i << ",";
+			std::cout << i << "|";
 		}
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */
@@ -81,8 +91,7 @@ void GeneticAlgorithm::evolve() {
 
 /* Select Two parents using different selection method. Outputs two parent solutions. */
 std::vector<Solution> GeneticAlgorithm::select_Parents() {
-	GASelect sel(population);
-	return sel.select_Solution(SelectionMethod::TOURNAMENT);
+	return gaSelect->select_Solution();
 }
 
 /* Crossover genes of parent solutions (exact copy or different) */
@@ -99,19 +108,17 @@ std::vector<Solution> GeneticAlgorithm::mutate(std::vector<Solution> offspring) 
 
 /* Take the offspring and replace them with the lowest rated solution from population using tournament method*/
 void GeneticAlgorithm::replace(std::vector<Solution> offspring) {
-	//Load select module with current pop and selecting the lowest fitness
-	GASelect sel(population, false);
 	//Select two solutions to remove, based on lowest fitness winning
-	std::vector<Solution> replaceSolution = sel.select_Solution(SelectionMethod::TOURNAMENT);
+	std::vector<Solution> replaceSolution = gaSelect->select_Solution(false);
 
 	//Now replace these soltions with the offspring solutions
 	for (int replaceSolutionID = 0; replaceSolutionID < replaceSolution.size(); replaceSolutionID++)
 	{
+		//Gets the index of the solution in population with a matching gene order
 		auto it = std::find(population.begin(), population.end(), replaceSolution[replaceSolutionID]);
 		if (it != population.end()) {
-			int id = it - population.begin();
 			population.erase(it);
-
+			
 			population.push_back(offspring[replaceSolutionID]);
 		}
 	}

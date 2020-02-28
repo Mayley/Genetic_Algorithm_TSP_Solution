@@ -25,7 +25,7 @@ std::vector<Solution> GAMutate::swap() {
 		for (int genePosition = 0; genePosition < offspring[offspringID].solution().size(); genePosition++)
 		{
 			//Random number to decide if gene should mutate
-			float mutateChance = (rand() % offspring[offspringID].solution().size()) / 100.0f;
+			float mutateChance = (rand() % 100 )/ 100.0f;
 			if (mutateChance <= mutationThreshold)
 			{
 				//Mutate Gene
@@ -39,12 +39,25 @@ std::vector<Solution> GAMutate::swap() {
 				//Swap genes
 				int gene1 = offspring[offspringID].get_gene_by_position(genePosition);
 				int gene2 = offspring[offspringID].get_gene_by_position(swapGenePosition);
+
+				if (debugMode)
+				{
+					std::cout << "Swapping genes: " << genePosition << "->" << swapGenePosition << std::endl;
+				}
+
 				offspring[offspringID].set_gene_by_position(genePosition, gene2);
 				offspring[offspringID].set_gene_by_position(swapGenePosition, gene1);
 			}
 		}
-	}
 
+		offspring[offspringID].calculate_fitness();
+
+		if (debugMode)
+		{
+			std::cout << "Mutated Offspring: " << offspring[offspringID] << std::endl;
+		}
+
+	}
 	//return mutated offspring
 	return (offspring);
 }

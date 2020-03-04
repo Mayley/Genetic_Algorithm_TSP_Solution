@@ -12,7 +12,6 @@ int main()
 	GeneticAlgorithm* ga = new GeneticAlgorithm;
 
 	menu.add_Menu_Option("Genetic Algorithm");
-	menu.add_Menu_Option("Settings");
 	menu.add_Menu_Option("Reset");
 
 	do
@@ -27,10 +26,6 @@ int main()
 			ga->main_Menu();
 			break;
 		case 2:
-			Settings::menu();
-			ga = new GeneticAlgorithm;
-			break;
-		case 3:
 			ga = new GeneticAlgorithm;
 			break;
 		default:

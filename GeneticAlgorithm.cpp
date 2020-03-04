@@ -35,8 +35,6 @@ void GeneticAlgorithm::main_Menu() {
 	menu.add_Menu_Option("Evolve");
 	menu.add_Menu_Option("Print");
 	menu.add_Menu_Option("Clear");
-	menu.add_Menu_Option("Reset");
-	menu.add_Menu_Option("Settings");
 
 	do
 	{
@@ -54,12 +52,6 @@ void GeneticAlgorithm::main_Menu() {
 			break;
 		case 3:
 			populationFitness.clear_Stats_File();
-			break;
-		case 4:
-			setup_Random_Population();
-			break;
-		case 5:
-			Settings::menu();
 			break;
 		default:
 			break;
@@ -79,6 +71,10 @@ void GeneticAlgorithm::evolve() {
 		}
 		else {
 			std::cout << i << "|";
+			if (i == Settings::numberOfGenerations -1 )
+			{
+				std::cout << std::endl;
+			}
 		}
 
 		/* Select, Crossover, Mutate, Evaluate, then add offspring into population */

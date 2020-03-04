@@ -39,9 +39,10 @@ std::vector<Solution> GACrossover::order() {
 	//Make a new child for each parent there is
 	for (int parentAid = 0; parentAid < parent.size(); parentAid++)
 	{
-		Solution blankSol;
-		blankSol.blank_solution();
-		offspring.push_back(blankSol);
+		Solution *blankSol = new Solution();
+		blankSol->blank_solution();
+		offspring.push_back(*blankSol);
+		delete blankSol;
 
 		//Get gene from parent A solution position (for ridStart - End) and change offspringSolution genepositon to the copied gene
 		for (int position = ridStart; position <= ridEnd; position++)
